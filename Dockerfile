@@ -22,4 +22,6 @@ RUN git clone --depth 1 -b v${VERSION} https://github.com/neo-project/neo-cli.gi
 	&& dotnet restore \
 	&& dotnet publish -c Release
 
+COPY config.json neo-cli/neo-cli/bin/Release/netcoreapp2.0/config.json
+
 CMD ["dotnet", "neo-cli/neo-cli/bin/Release/netcoreapp2.0/neo-cli.dll", "/rpc"]
