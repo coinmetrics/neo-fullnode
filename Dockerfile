@@ -19,8 +19,8 @@ ARG VERSION
 
 RUN set -ex; \
 	git clone --depth 1 -b v${VERSION} https://github.com/neo-project/neo-cli.git; \
-	&& cd neo-cli; \
-	&& dotnet publish -c Release
+	cd neo-cli; \
+	dotnet publish -c Release
 
 RUN set -ex; \
 	git clone --depth 1 -b v${VERSION} https://github.com/neo-project/neo-plugins.git; \
