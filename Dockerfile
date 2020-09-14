@@ -16,18 +16,11 @@ USER runner
 WORKDIR /home/runner
 
 ARG VERSION
-ARG VERSION_PLUGINS
 
 RUN set -ex; \
 	git clone --depth 1 -b v${VERSION} https://github.com/neo-project/neo-cli.git; \
 	cd neo-cli; \
 	dotnet publish -c Release
-
-RUN set -ex; \
-	git clone --depth 1 -b v${VERSION_PLUGINS} https://github.com/neo-project/neo-plugins.git; \
-	cd neo-plugins; \
-	dotnet publish -f netstandard2.0 -c Release ImportBlocks; \
-	mv ImportBlocks/bin/Release/netstandard2.0 ../neo-cli/neo-cli/bin/Release/netcoreapp2.1/Plugins
 
 COPY config.json neo-cli/neo-cli/bin/Release/netcoreapp2.1/config.json
 

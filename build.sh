@@ -3,11 +3,10 @@
 set -e
 
 export VERSION=$(cat version.txt)
-export VERSION_PLUGINS=$(cat version_plugins.txt)
-echo "Image version ${VERSION} (plugins ${VERSION_PLUGINS})."
+echo "Image version ${VERSION}."
 
 echo "Building image..."
-docker build --build-arg "VERSION=${VERSION}" --build-arg "VERSION_PLUGINS=${VERSION_PLUGINS}" -t "${DOCKER_REGISTRY_REPO}:${VERSION}" .
+docker build --build-arg "VERSION=${VERSION}" -t "${DOCKER_REGISTRY_REPO}:${VERSION}" .
 echo "Image ready."
 
 if [ -n "${DOCKER_REGISTRY}" ] && [ -n "${DOCKER_REGISTRY_USER}" ] && [ -n "${DOCKER_REGISTRY_PASSWORD}" ]
