@@ -1,4 +1,3 @@
-FROM microsoft/dotnet:sdk
 FROM mcr.microsoft.com/dotnet/sdk
 
 
