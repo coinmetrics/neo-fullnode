@@ -1,4 +1,6 @@
 FROM microsoft/dotnet:sdk
+FROM mcr.microsoft.com/dotnet/sdk
+
 
 RUN set -ex; \
 	apt-get update; \
